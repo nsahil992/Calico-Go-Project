@@ -1,0 +1,428 @@
+/* styles.css */
+
+body {
+    font-family: 'Google Sans', sans-serif;
+    background: linear-gradient(135deg, #f0f2f5, #e1e6ea);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 30px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo & Panda Styles */
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.panda-container {
+    position: relative;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.panda {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+}
+
+.panda-head {
+    width: 100px;
+    height: 100px;
+    background-color: #fff; /* White panda face */
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+    border: 2px solid black;
+}
+
+.panda-face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.panda-ears {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ear {
+    width: 20px;
+    height: 20px;
+    background-color: black; /* Black ears */
+    border-radius: 50%;
+}
+
+.panda-eyes {
+    position: relative;
+    top: -10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.eye {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid black;
+}
+
+.pupil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: #000;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.eyelid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #000;
+    transition: height 0.3s ease-in-out;
+}
+
+.panda-nose {
+    width: 12px;
+    height: 8px;
+    background-color: #000;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.panda-mouth {
+    width: 30px;
+    height: 5px;
+    background-color: #000;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+    border-radius: 0 0 10px 10px;
+}
+
+/* Covering hands style */
+.covering-hands {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 10; /* Ensure it's above the panda head */
+}
+
+.covering-hands.show {
+    display: flex;
+}
+
+.hand {
+    width: 25px;
+    height: 40px;
+    background-color: #000;
+    border-radius: 10px;
+    margin: 0 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Google-like Logo (No changes needed here) */
+.logo {
+    font-family: 'Google Sans', sans-serif;
+    font-size: 2.5em;
+    font-weight: 500;
+    color: #4285f4;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.letter {
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.g { color: #4285f4; }
+.o1 { color: #ea4335; }
+.o2 { color: #fbbc05; }
+.g2 { color: #4285f4; }
+.l { color: #34a853; }
+.y { color: #ea4335; }
+
+.tagline {
+    color: #777;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/* Tabs (No changes needed here) */
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #555;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    flex: 1;
+}
+
+.tab-btn.active {
+    background-color: #ddd;
+    color: #333;
+}
+
+/* Form Styles (No changes needed here) */
+.form-container form {
+    display: none;
+}
+
+.form-container form.active {
+    display: block;
+}
+
+.form-container h2 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-container .subtitle {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+.input-group input:focus {
+    border-color: #4285f4;
+    outline: none;
+}
+
+.input-group label {
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    color: #aaa;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 10px;
+    font-size: 0.8em;
+    color: #4285f4;
+    background-color: #fff;
+    padding: 0 5px;
+    border-radius: 5px;
+}
+
+.funny-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: #888;
+}
+
+.password-group {
+    position: relative;
+}
+
+.password-group .show-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    color: #888;
+}
+
+.form-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.helper-text {
+    color: #777;
+    font-size: 0.85em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.form-actions button {
+    padding: 12px 30px;
+    border: none;
+    background-color: #4285f4;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 250px;
+}
+
+.form-actions button:hover {
+    background-color: #3574d4;
+}
+
+.form-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.witty-message {
+    color: #888;
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+/* Success Banner (No changes needed here) */
+#successBanner {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.banner-icon {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Footer Styles (No changes needed here) */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 0.9em;
+}
+
+.footer-links a {
+    color: #4285f4;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.language-selector select {
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #555;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+/* Media Queries for Responsiveness (No changes needed here) */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        margin: 10px
+    }}

@@ -1,30 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Fun loading messages
     const funnyLoadingMessages = [
-        "Brewing eucalyptus tea for the server...",
-        "Polishing the login leaves...",
-        "Counting your data in the pouch...",
-        "Hugging the digital trees...",
-        "Convincing the drop bears to stay away...",
-        "Untangling the vines of the internet...",
-        "Gathering bytes like leaves..."
+        "Brewing coffee for the server hamsters...",
+        "Warming up the login processors...",
+        "Dusting off your account details...",
+        "Searching for your data in the cloud...",
+        "Convincing the AI not to take over the world...",
+        "Untangling the internet tubes...",
+        "Herding bytes into their proper places..."
     ];
 
     // Random witty messages - these change on reload
     const loginWittyMessages = [
-        "Passwords are like eucalyptus leaves... protect them!",
-        "Login attempts are like climbing a tree - needs grip!",
-        "Your password is like a cozy branch - secure and comfy!",
-        "Drop bears don't break in - unless you leave the window open.",
-        "If your password is 'koala', reconsider your life choices."
+        "Passwords are like underwear... make them mysterious but don't share them!",
+        "Login attempts are like first dates - sometimes they need a second try.",
+        "Your password is like a toothbrush. Choose a good one, change it regularly, and don't share it!",
+        "Hackers don't break in through the front door - unless you leave it unlocked.",
+        "If your password is 'password', maybe reconsider your life choices."
     ];
 
     const registerWittyMessages = [
-        "Don't worry, we won't judge your tree-climbing skills (but the algorithm might)",
+        "Don't worry, we won't judge your password strength (but our algorithm might)",
         "Creating an account is like planting a tree - do it once, enjoy it for years.",
-        "We keep your data safer than joeys in a pouch.",
-        "Your email is safe with us (we won't sell it... for less than a pile of eucalyptus)",
-        "Your account will be more secure than a koala's grip"
+        "We promise to keep your data safer than your secrets in a group chat",
+        "Your email is safe with us (we won't sell it... for less than a million dollars)",
+        "Your account will be more secure than that sandwich in the office fridge"
     ];
 
     // Set random witty messages
@@ -58,9 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 msg.textContent = '';
                 msg.className = 'form-message';
             });
-
-            // Reset koala state
-            resetKoalaState();
         });
     });
 
@@ -107,27 +104,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.reset();
 
                 // Show success message
-                messageElement.textContent = result.message || "Account created! Ready for climbing.";
+                messageElement.textContent = result.message || "Account created! You're officially part of the club now.";
                 messageElement.className = 'form-message success';
 
                 // Switch to login tab after successful registration
                 setTimeout(() => {
                     document.querySelector('[data-form="login"]').click();
-                    showSuccessBanner('Account created! Time to show off those climbing skills!');
+                    showSuccessBanner('Account created! Time to show off those login skills!');
                 }, 1500);
             } else {
                 // Show error message with a fun twist
                 const errorMessages = {
-                    "Email already exists": "This email is already in a tree. Grab another?",
-                    "Invalid email format": "That doesn't look like a vine. We need something with an @.",
-                    "Password too weak": "That password is weaker than a twig. Try something stronger!"
+                    "Email already exists": "This email is already taken. Are you trying to clone yourself?",
+                    "Invalid email format": "That doesn't look like an email. We need something with an @ symbol (and preferably a dot).",
+                    "Password too weak": "That password is weaker than a paper umbrella. Try something stronger!"
                 };
-                messageElement.textContent = errorMessages[result.message] || result.message || "Something went wrong. Nature is unpredictable, right?";
+
+                messageElement.textContent = errorMessages[result.message] || result.message || "Something went wrong. Technology, am I right?";
                 messageElement.className = 'form-message error';
             }
         } catch (error) {
             console.error('Registration error:', error);
-            messageElement.textContent = 'The digital eucalyptus forest is down. Please try again.';
+            messageElement.textContent = 'Our servers are having an existential crisis. Please try again.';
             messageElement.className = 'form-message error';
         }
     });
@@ -144,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const password = document.getElementById('loginPassword').value;
 
         if (!email || !password) {
-            messageElement.textContent = 'Email and password are required. Like leaves and branches.';
+            messageElement.textContent = 'Email and password are both required (shocking, we know)';
             messageElement.className = 'form-message error';
             return;
         }
@@ -169,22 +167,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.reset();
 
                 // Show success message
-                messageElement.textContent = "Login successful! Tree-climbing mode activated!";
+                messageElement.textContent = "Login successful! Hold on to your hat!";
                 messageElement.className = 'form-message success';
 
                 // Display welcome banner
                 const welcomeMessages = [
-                    `Welcome back, ${result.name || 'Joey'}! Climb on!`,
-                    `${result.name || 'Joey'} has climbed back in!`,
-                    `The legendary ${result.name || 'Joey'} returns!`,
-                    `Welcome back! The eucalyptus is fresh for you, ${result.name || 'Joey'}.`
+                    `Welcome back, ${result.name || 'User'}! We've missed you terribly.`,
+                    `${result.name || 'User'} has entered the chat!`,
+                    `The prodigal ${result.name || 'User'} returns!`,
+                    `Welcome back! Your inbox has been crying without you, ${result.name || 'User'}.`
                 ];
 
                 showSuccessBanner(welcomeMessages[Math.floor(Math.random() * welcomeMessages.length)]);
 
                 // Store user info in localStorage
                 localStorage.setItem('userLoggedIn', 'true');
-                localStorage.setItem('userName', result.name || 'Joey');
+                localStorage.setItem('userName', result.name || 'User');
 
                 // In a real app, you might redirect to a dashboard or homepage after a delay
                 // setTimeout(() => {
@@ -193,17 +191,17 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 // Show error message with a fun twist
                 const errorMessages = {
-                    "Invalid credentials": "Those leaves don't match this tree.",
-                    "User not found": "We looked everywhere, but couldn't find you. Are you a ghost koala?",
-                    "Account locked": "Your account is sleeping in the sun."
+                    "Invalid credentials": "That email/password combo is like oil and water - they don't mix.",
+                    "User not found": "We looked everywhere, but couldn't find you. Are you sure you exist?",
+                    "Account locked": "Your account is on time-out. It needs to think about what it did."
                 };
 
-                messageElement.textContent = errorMessages[result.message] || result.message || "Login failed. Maybe the tree moved?";
+                messageElement.textContent = errorMessages[result.message] || result.message || "Login failed. The keys to the kingdom remain elusive.";
                 messageElement.className = 'form-message error';
             }
         } catch (error) {
             console.error('Login error:', error);
-            messageElement.textContent = 'Our server is currently taking a nap. Please try again.';
+            messageElement.textContent = 'Our servers are currently taking a coffee break. Please try again.';
             messageElement.className = 'form-message error';
         }
     });
@@ -235,137 +233,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Check if user is already logged in (for demonstration purposes)
     if (localStorage.getItem('userLoggedIn') === 'true') {
-        const userName = localStorage.getItem('userName') || 'Joey';
+        const userName = localStorage.getItem('userName') || 'User';
         const welcomeBackMessages = [
-            `${userName} is back! More eucalyptus for everyone!`,
-            `Look who's back! ${userName} has returned!`,
-            `${userName} is back! Tree's ready!`,
-            `Welcome back, ${userName}! Don't fall out of the tree!`
+            `${userName} is back! Hide the good snacks!`,
+            `Look who it is! ${userName} has returned!`,
+            `${userName} is back! We already have your usual ready.`,
+            `Welcome back, ${userName}! We promise we didn't touch anything.`
         ];
 
         showSuccessBanner(welcomeBackMessages[Math.floor(Math.random() * welcomeBackMessages.length)]);
     }
-
-    // ========= KOALA ANIMATION FUNCTIONALITY =========
-    const koala = document.querySelector('.koala-head');
-    const loginEmail = document.getElementById('loginEmail');
-    const registerEmail = document.getElementById('email');
-    const loginPassword = document.getElementById('loginPassword');
-    const registerPassword = document.getElementById('password');
-    const showLoginPasswordBtn = document.getElementById('showLoginPassword');
-    const showPasswordBtn = document.getElementById('showPassword');
-    const leftEyelid = document.querySelector('.eye.left .eyelid');
-    const rightEyelid = document.querySelector('.eye.right .eyelid');
-    const leftPupil = document.querySelector('.eye.left .pupil');
-    const rightPupil = document.querySelector('.eye.right .pupil');
-    const coveringHands = document.querySelector('.covering-hands');
-
-    // Initialize koala state
-    function resetKoalaState() {
-        koala.style.transform = 'rotate(0deg)';
-        leftEyelid.style.height = '0';
-        rightEyelid.style.height = '0';
-        coveringHands.classList.remove('show');
-        leftPupil.style.transform = 'translateX(0)';
-        rightPupil.style.transform = 'translateX(0)';
-    }
-
-    // Email focus event for both forms
-    [loginEmail, registerEmail].forEach(input => {
-        if (!input) return;
-
-        input.addEventListener('focus', () => {
-            // Make sure eyes are open
-            leftEyelid.style.height = '0';
-            rightEyelid.style.height = '0';
-            coveringHands.classList.remove('show');
-
-            // Start neck movement animation
-            koala.classList.add('looking');
-        });
-
-        input.addEventListener('blur', () => {
-            // Stop neck movement
-            koala.classList.remove('looking');
-            koala.style.transform = 'rotate(0deg)';
-        });
-
-        // Track typing to move koala head
-        input.addEventListener('input', () => {
-            const inputLength = input.value.length;
-            const maxRotation = 20; // Maximum rotation in degrees
-            const direction = (inputLength % 2 === 0) ? 1 : -1; // Alternate directions
-            const rotation = Math.min(inputLength, maxRotation) * direction;
-
-            // Move head based on typing
-            koala.style.transform = `rotate(${rotation}deg)`;
-
-            // Move pupils
-            const pupilPosition = (rotation / maxRotation) * 5; // Max 5px movement
-            leftPupil.style.transform = `translateX(${pupilPosition}px)`;
-            rightPupil.style.transform = `translateX(${pupilPosition}px)`;
-        });
-    });
-
-    // Password focus event for both forms
-    [loginPassword, registerPassword].forEach(input => {
-        if (!input) return;
-
-        input.addEventListener('focus', () => {
-            // Close eyes and show hands when typing password
-            leftEyelid.style.height = '100%';
-            rightEyelid.style.height = '100%';
-            coveringHands.classList.add('show'); // Show the hands
-            koala.classList.remove('looking');
-        });
-
-        input.addEventListener('blur', () => {
-            // Open eyes and hide hands when not focused on password
-            if (!input.classList.contains('showing-password')) {
-                leftEyelid.style.height = '0';
-                rightEyelid.style.height = '0';
-                coveringHands.classList.remove('show'); // Hide the hands
-            }
-        });
-    });
-
-    // Show password button for both forms
-    [showLoginPasswordBtn, showPasswordBtn].forEach((btn, index) => {
-        if (!btn) return;
-
-        const passwordInput = index === 0 ? loginPassword : registerPassword;
-
-        btn.addEventListener('mousedown', () => {
-            // Change input type to show password
-            passwordInput.type = 'text';
-            passwordInput.classList.add('showing-password');
-
-            // Peek through hands
-            leftEyelid.style.height = '50%'; // Partially open
-            rightEyelid.style.height = '50%'; // Partially open
-            coveringHands.classList.add('show');
-        });
-
-        btn.addEventListener('mouseup', () => {
-            // Change back to password type
-            passwordInput.type = 'password';
-            passwordInput.classList.remove('showing-password');
-
-            // Close eyes fully again
-            leftEyelid.style.height = '100%';
-            rightEyelid.style.height = '100%';
-            coveringHands.classList.remove('show'); // Ensure hands are removed when eyes are closed
-        });
-
-        btn.addEventListener('mouseleave', () => {
-            // In case mouse leaves the button while pressed
-            if (passwordInput.type === 'text') {
-                passwordInput.type = 'password';
-                passwordInput.classList.remove('showing-password');
-                leftEyelid.style.height = '100%';
-                rightEyelid.style.height = '100%';
-                coveringHands.classList.remove('show'); // Ensure hands are removed when eyes are closed
-            }
-        });
-    });
 });
